@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 1
     steps:
     - name: create
-      run: sleep 120s
+      run: sleep 2
 
   main:
     needs:
@@ -24,7 +24,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
     - name: main
-      run: echo ok
+      run: sleep 120
+    - name: finale
+      if: always()
+      run: echo finale
   post:
     if: always()
     needs:
@@ -32,4 +35,4 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
     - name: destroy
-      run: sleep 120s
+      run: sleep 2
