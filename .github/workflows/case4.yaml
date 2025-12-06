@@ -52,7 +52,7 @@ jobs:
     needs:
       - l2
     if: ${{ always()
-           && (needs.l2.result == 'success' || needs.l2.result == 'skipped') }}
+           && needs.l2.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "test l2"
