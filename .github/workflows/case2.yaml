@@ -31,8 +31,16 @@ jobs:
     steps:
       - run: echo "l1"
 
+  test_l1:
+    needs:
+      - l1
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test l1"
+
+
   l2:
-    needs: [detect_changes, l1]
+    needs: [detect_changes, test_l1]
     # run only if needed; after job2 if it ran, otherwise right after job1
     if: ${{ always()
            && needs.detect_changes.outputs.l2 == 'true'
@@ -40,3 +48,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "l2"
+
+  test_l2:
+    needs:
+      - l2
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test l2"
