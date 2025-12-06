@@ -1,4 +1,4 @@
-name: "Case 3: L1 only"
+name: "Case 8: L2-only, failing L1"
 
 permissions:
   contents: read
@@ -20,8 +20,8 @@ jobs:
       - id: changes
         run: |
           # set-output here, e.g. via $GITHUB_OUTPUT
-          echo "l1=true"  >> "$GITHUB_OUTPUT"
-          echo "l2=false"  >> "$GITHUB_OUTPUT"
+          echo "l1=false"  >> "$GITHUB_OUTPUT"
+          echo "l2=true"  >> "$GITHUB_OUTPUT"
   
   l1:
     needs:
@@ -47,6 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "l2"
+      - run: /bin/false
 
   test_l2:
     needs:
