@@ -1,4 +1,4 @@
-name: "Case 1: L1+l2"
+name: "Case 2: L2 only"
 
 permissions:
   contents: read
@@ -20,7 +20,7 @@ jobs:
       - id: changes
         run: |
           # set-output here, e.g. via $GITHUB_OUTPUT
-          echo "l1=true"  >> "$GITHUB_OUTPUT"
+          echo "l1=false"  >> "$GITHUB_OUTPUT"
           echo "l2=true"  >> "$GITHUB_OUTPUT"
   
   l1:

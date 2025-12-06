@@ -1,4 +1,4 @@
-name: "Case 1: L1+l2"
+name: "Case 5: L1+L2, failing L1"
 
 permissions:
   contents: read
@@ -21,7 +21,7 @@ jobs:
         run: |
           # set-output here, e.g. via $GITHUB_OUTPUT
           echo "l1=true"  >> "$GITHUB_OUTPUT"
-          echo "l2=true"  >> "$GITHUB_OUTPUT"
+          echo "l2=false"  >> "$GITHUB_OUTPUT"
   
   l1:
     needs:
@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "l1"
+      - run: /bin/false
 
   l2:
     needs: [detect_changes, l1]
