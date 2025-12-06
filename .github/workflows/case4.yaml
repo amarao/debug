@@ -43,7 +43,7 @@ jobs:
     # run only if needed; after job2 if it ran, otherwise right after job1
     if: ${{ always()
            && needs.detect_changes.outputs.l2 == 'true'
-           && (needs.l1.result == 'success' || needs.l1.result == 'skipped') }}
+           && (needs.test_l1.result == 'success' || needs.test_l1.result == 'skipped') }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "l2"
@@ -51,6 +51,8 @@ jobs:
   test_l2:
     needs:
       - l2
+    if: ${{ always()
+           && (needs.l2.result == 'success' || needs.l2.result == 'skipped') }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "test l2"
