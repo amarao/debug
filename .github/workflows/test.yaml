@@ -1,5 +1,5 @@
 ---
-name: Test1
+name: Test 1
 on:
   pull_request:
   workflow_dispatch:
