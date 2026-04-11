@@ -1,5 +1,5 @@
 ---
-name: Test 2 in feature 1
+name: Test 2 in feature 1 (change2)
 on:
   pull_request:
   workflow_dispatch:
