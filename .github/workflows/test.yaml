@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     concurrency:
-      group: ${{ github.workflow }}-${{ github.job }}-pr-${{ github.event.pull_request.number || github.run_id }}
+      group: ${{ github.workflow }}-deploy-pr-${{ github.event.pull_request.number || github.run_id }}
       cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +17,7 @@ jobs:
     needs:
       - deploy
     concurrency:
-      group: ${{ github.workflow }}-${{ github.job }}-pr-${{ github.event.pull_request.number || github.run_id }}
+      group: ${{ github.workflow }}-test-pr-${{ github.event.pull_request.number || github.run_id }}
       cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
