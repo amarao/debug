@@ -4,6 +4,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: foo
+  cancel-in-progress: false
+
 jobs:
   deploy:
     name: Deploy
