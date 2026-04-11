@@ -1,5 +1,5 @@
 ---
-name: Test 1 change2
+name: Test 2 change 2
 on:
   pull_request:
   workflow_dispatch:
@@ -7,6 +7,7 @@ on:
 concurrency:
   group: foo
   cancel-in-progress: false
+
 jobs:
   deploy:
     name: Deploy feature 2
